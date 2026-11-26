@@ -4,19 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brett Stone — Geospatial &amp; Intelligence Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
-      --bg: #0c1117;
-      --surface: #161d27;
-      --surface-2: #1d2633;
-      --text: #f0f6fc;
-      --muted: #9ba7b4;
-      --accent: #34d399;
-      --accent-soft: rgba(52, 211, 153, 0.12);
-      --border: #2a3544;
+      --bg-void: #050608;
+      --bg-surface: #0b0d11;
+      --bg-elevated: #11151c;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text-primary: #f4f6f9;
+      --text-secondary: #9aa3b2;
+      --text-muted: #687182;
+      --accent: #e5e9f0;
+      --accent-subtle: rgba(255, 255, 255, 0.06);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --max-w: 1080px;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -27,166 +41,221 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
-      color: var(--accent);
+      color: inherit;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    nav {
+    /* Top bar */
+    header.site-nav {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(12, 17, 23, 0.92);
-      backdrop-filter: blur(8px);
+      z-index: 20;
+      background: rgba(5, 6, 8, 0.84);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
 
     .nav-inner {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0.9rem 1.25rem;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
+      gap: 1rem;
+      min-height: 60px;
+    }
+
+    .brand {
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
     }
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      font-size: 0.95rem;
-      font-weight: 600;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-secondary);
     }
 
-    .brand {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--text);
+    .nav-links a:hover {
+      color: var(--text-primary);
     }
 
-    .container {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 2.5rem 1.25rem 4rem;
-    }
-
+    /* Hero section */
     .hero {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 2rem 2.25rem;
-      margin-bottom: 3rem;
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .eyebrow {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+    .hero-grid {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar-initials {
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .kicker {
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.45rem;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
     }
 
     h1 {
-      font-size: 2.1rem;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.85rem;
-    }
-
-    .accent-bar {
-      width: 64px;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 999px;
-      margin-bottom: 1.1rem;
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 72ch;
+      font-size: clamp(1.9rem, 3.6vw, 2.65rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
       margin-bottom: 0.9rem;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.25rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.55rem 1rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      background: var(--accent);
-      color: #07130e;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      opacity: 0.92;
-      text-decoration: none;
-    }
-
-    .btn-ghost {
-      background: var(--accent-soft);
-      color: var(--accent);
-      border: 1px solid rgba(52, 211, 153, 0.35);
-    }
-
-    section {
-      margin-bottom: 3.25rem;
-    }
-
-    .section-title {
-      font-size: 1.55rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .section-rule {
-      width: 52px;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 999px;
+    .bio {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      max-width: 68ch;
       margin-bottom: 1.5rem;
     }
 
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.58rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.86rem;
+      font-weight: 500;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      transition: background 0.16s ease, border-color 0.16s ease;
+    }
+
+    .btn:hover {
+      background: var(--bg-elevated);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-primary {
+      background: var(--text-primary);
+      color: var(--bg-void);
+      border-color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background: #dfe4ec;
+      border-color: #dfe4ec;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+      gap: 1rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .section-note {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    /* Portfolio grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 1.35rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
     }
 
     .card {
-      background: var(--surface);
+      background: var(--bg-surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      transition: border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
     }
 
     .thumb {
       display: block;
       aspect-ratio: 16 / 10;
-      background: var(--surface-2);
-      overflow: hidden;
+      background: var(--bg-elevated);
       border-bottom: 1px solid var(--border);
+      overflow: hidden;
     }
 
     .thumb img {
@@ -196,26 +265,29 @@
       display: block;
     }
 
-    .doc-preview {
+    .doc-tile {
       width: 100%;
       height: 100%;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.25rem;
-      text-align: center;
-      color: var(--text);
-      background: linear-gradient(145deg, var(--surface-2), var(--bg));
+      justify-content: space-between;
+      background: linear-gradient(180deg, #10141c 0%, #090b0f 100%);
     }
 
-    .tag {
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: var(--accent);
+    .doc-type {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.35rem;
+      color: var(--text-muted);
+    }
+
+    .doc-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.35;
     }
 
     .card-body {
@@ -225,147 +297,57 @@
       flex: 1;
     }
 
+    .meta-tag {
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
     .card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.4rem;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.45rem;
     }
 
     .card p {
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
+      font-size: 0.89rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.1rem;
       flex: 1;
     }
 
-    .resume-box {
-      background: var(--surface);
+    .card-link {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card-link:hover {
+      color: var(--text-secondary);
+    }
+
+    /* Resume panel */
+    .panel {
+      background: var(--bg-surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       padding: 1.5rem 1.75rem;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
-    .resume-box p {
-      color: var(--muted);
-      max-width: 60ch;
-      font-size: 0.94rem;
+    .panel h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
     }
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.75rem 1.25rem 2.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <div class="nav-inner">
-      <div class="nav-links">
-        <a href="#portfolio">Portfolio</a>
-        <a href="#resume">Resume</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <span class="brand">Brett Stone</span>
-    </div>
-  </nav>
-
-  <div class="container">
-    <header class="hero">
-      <div class="eyebrow">Intelligence Analysis &bull; Cartography &bull; Geospatial Science</div>
-      <h1>Welcome! I'm Brett Stone.</h1>
-      <div class="accent-bar"></div>
-      <p>
-        I am an undergraduate double major in Intelligence Analysis and Geography (Applied GIS Concentration) at
-        James Madison University (expected graduation May 2027), working on NGA Tearline geospatial intelligence
-        research and cartographic/spatial analysis across ArcGIS Pro, Affinity, Python, and SQL.
-      </p>
-      <p>
-        Explore selected cartographic and spatial analysis projects below, view my current resume, or reach out
-        directly at <strong>brett.stone.008@gmail.com</strong>.
-      </p>
-      <div class="hero-actions">
-        <a class="btn" href="#portfolio">View Portfolio</a>
-        <a class="btn btn-ghost" href="Brett_Stone_Resume.pdf" target="_blank" rel="noopener">Open Resume PDF</a>
-      </div>
-    </header>
-
-    <section id="portfolio">
-      <h2 class="section-title">My Portfolio</h2>
-      <div class="section-rule"></div>
-      <div class="grid">
-        <article class="card">
-          <a class="thumb" href="SUNRISE.png" target="_blank" rel="noopener">
-            <img src="SUNRISE.png" alt="Cartographic terrain and relief design preview" />
-          </a>
-          <div class="card-body">
-            <div class="tag">ArcGIS Pro &bull; Affinity</div>
-            <h3>Cartographic Terrain &amp; Relief</h3>
-            <p>Elevation-driven terrain styling and cartographic layout focused on visual hierarchy and legibility.</p>
-            <a href="SUNRISE.png" target="_blank" rel="noopener">View Full Image &rarr;</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <a class="thumb" href="aviation_map.pdf" target="_blank" rel="noopener">
-            <div class="doc-preview">
-              <div class="tag">PDF Map Sample</div>
-              <strong>U.S. Aviation Spatial Risk</strong>
-            </div>
-          </a>
-          <div class="card-body">
-            <div class="tag">ArcGIS Pro &bull; Spatial Analysis</div>
-            <h3>Federal Aviation Incident &amp; Radar Mapping</h3>
-            <p>Spatial analysis examining aviation incident patterns alongside surface radar and airspace coverage.</p>
-            <a href="aviation_map.pdf" target="_blank" rel="noopener">Open PDF Map &rarr;</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <a class="thumb" href="https://brettst1.github.io/Portfolio/" target="_blank" rel="noopener">
-            <div class="doc-preview">
-              <div class="tag">Additional Sample</div>
-              <strong>Add Next Map or StoryMap</strong>
-            </div>
-          </a>
-          <div class="card-body">
-            <div class="tag">ArcGIS Pro &bull; Python</div>
-            <h3>Upcoming Project Slot</h3>
-            <p>Upload an image, PDF, or ArcGIS StoryMap link for your Arctic maritime, migration, or capstone work.</p>
-            <a href="https://brettst1.github.io/Portfolio/" target="_blank" rel="noopener">Inspect Sample &rarr;</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="resume">
-      <h2 class="section-title">Resume &amp; Background</h2>
-      <div class="section-rule"></div>
-      <div class="resume-box">
-        <div>
-          <h3>Curriculum Vitae / Resume</h3>
-          <p>
-            Includes education at James Madison University, NGA Tearline research, VADEQ GIS internship work,
-            and technical skills in GIS, remote sensing, structured analysis, Python, and SQL.
-          </p>
-        </div>
-        <a class="btn" href="Brett_Stone_Resume.pdf" target="_blank" rel="noopener">Download / View PDF</a>
-      </div>
-    </section>
-  </div>
-
-  <footer id="contact">
-    <p>
-      Harrisonburg, VA &bull; <a href="mailto:brett.stone.008@gmail.com">brett.stone.008@gmail.com</a> &bull;
-      <a href="https://github.com/brettst1" target="_blank" rel="noopener">GitHub</a>
-    </p>
-    <p>&copy; 2026 Brett Stone</p>
-  </footer>
-</body>
-</html>
+    .
