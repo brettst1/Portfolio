@@ -4,30 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brett Stone — Geospatial &amp; Intelligence Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
   <style>
-    :root {
-      --bg-void: #050608;
-      --bg-surface: #0c0f14;
-      --bg-elevated: #141922;
-      --border: rgba(255, 255, 255, 0.1);
-      --border-strong: rgba(255, 255, 255, 0.22);
-      --text-primary: #f5f7fa;
-      --text-secondary: #a2acc0;
-      --text-muted: #6c7588;
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --max-w: 1080px;
-    }
-
-    *,
-    *::before,
-    *::after {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -38,82 +16,82 @@
     }
 
     body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg-void);
-      color: var(--text-primary);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #050608;
+      color: #f5f7fa;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
     }
 
     a {
-      color: inherit;
+      color: #e5e9f0;
       text-decoration: none;
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
     .wrap {
-      max-width: var(--max-w);
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
-    header.site-nav {
+    header.topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(5, 6, 8, 0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      background: #080a0e;
+      border-bottom: 1px solid #1e2430;
     }
 
-    .nav-inner {
+    .topbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
       gap: 1rem;
-      min-height: 60px;
+      min-height: 58px;
     }
 
     .brand {
-      font-size: 0.95rem;
       font-weight: 600;
-      letter-spacing: -0.01em;
+      font-size: 0.95rem;
+      color: #ffffff;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      font-size: 0.86rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-    }
-
-    .nav-links a:hover {
-      color: var(--text-primary);
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      font-size: 0.88rem;
+      color: #a3aec2;
     }
 
     .hero {
-      padding: 3.5rem 0 2.5rem;
-      border-bottom: 1px solid var(--border);
+      padding: 3.25rem 0 2.5rem;
+      border-bottom: 1px solid #1e2430;
     }
 
-    .hero-grid {
+    .hero-row {
       display: flex;
       align-items: flex-start;
-      gap: 1.75rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
     }
 
     .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 999px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-strong);
-      overflow: hidden;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: #12161f;
+      border: 1px solid #2e3748;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #d0d7e3;
+      overflow: hidden;
       flex-shrink: 0;
     }
 
@@ -121,133 +99,103 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
-    .avatar-initials {
-      font-size: 1.4rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--text-secondary);
-    }
-
-    .hero-content {
+    .hero-copy {
       flex: 1;
       min-width: 260px;
     }
 
-    .kicker {
+    .eyebrow {
       font-size: 0.76rem;
       font-weight: 600;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.55rem;
+      color: #7c879c;
+      margin-bottom: 0.5rem;
     }
 
     h1 {
-      font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+      font-size: 2.2rem;
       font-weight: 600;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.025em;
       line-height: 1.15;
-      margin-bottom: 0.9rem;
+      color: #ffffff;
+      margin-bottom: 0.85rem;
     }
 
     .bio {
-      color: var(--text-secondary);
-      font-size: 0.98rem;
+      color: #b4bece;
       max-width: 68ch;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
     }
 
-    .cta-row {
+    .btn-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.58rem 1rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.86rem;
+      display: inline-block;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
       font-weight: 500;
-      border: 1px solid var(--border-strong);
-      background: var(--bg-surface);
-      color: var(--text-primary);
-      transition: background 0.16s ease, border-color 0.16s ease;
+      background: #10141c;
+      color: #f5f7fa;
+      border: 1px solid #2c3546;
     }
 
     .btn:hover {
-      background: var(--bg-elevated);
-      border-color: rgba(255, 255, 255, 0.34);
+      background: #181e2a;
+      text-decoration: none;
     }
 
-    .btn-primary {
-      background: var(--text-primary);
-      color: var(--bg-void);
-      border-color: var(--text-primary);
+    .btn-light {
+      background: #f5f7fa;
+      color: #050608;
+      border-color: #f5f7fa;
       font-weight: 600;
     }
 
-    .btn-primary:hover {
-      background: #dfe4ec;
-      border-color: #dfe4ec;
+    .btn-light:hover {
+      background: #dfe5ef;
+      text-decoration: none;
     }
 
     section {
-      padding: 3rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 1.75rem;
-      gap: 1rem;
-      flex-wrap: wrap;
+      padding: 2.75rem 0;
+      border-bottom: 1px solid #1e2430;
     }
 
     h2 {
       font-size: 1.25rem;
       font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-
-    .section-note {
-      font-size: 0.84rem;
-      color: var(--text-muted);
+      color: #ffffff;
+      margin-bottom: 1.4rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 1.25rem;
     }
 
     .card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
+      background: #0c0f15;
+      border: 1px solid #1e2430;
+      border-radius: 12px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: border-color 0.18s ease, transform 0.18s ease;
-    }
-
-    .card:hover {
-      border-color: var(--border-strong);
-      transform: translateY(-2px);
     }
 
     .thumb {
       display: block;
       aspect-ratio: 16 / 10;
-      background: var(--bg-elevated);
-      border-bottom: 1px solid var(--border);
+      background: #12161f;
+      border-bottom: 1px solid #1e2430;
       overflow: hidden;
     }
 
@@ -258,29 +206,27 @@
       display: block;
     }
 
-    .doc-tile {
+    .plate {
       width: 100%;
       height: 100%;
-      padding: 1.5rem;
+      padding: 1.35rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: linear-gradient(180deg, #121722 0%, #080a0e 100%);
+      background: #10141d;
     }
 
-    .doc-type {
+    .plate-label {
       font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      color: #7c879c;
     }
 
-    .doc-title {
+    .plate-title {
       font-size: 1rem;
       font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.35;
+      color: #ffffff;
     }
 
     .card-body {
@@ -290,75 +236,56 @@
       flex: 1;
     }
 
-    .meta-tag {
-      font-size: 0.76rem;
-      font-weight: 500;
-      color: var(--text-muted);
+    .card-meta {
+      font-size: 0.78rem;
+      color: #7c879c;
       margin-bottom: 0.35rem;
     }
 
     .card h3 {
       font-size: 1rem;
       font-weight: 600;
-      letter-spacing: -0.01em;
+      color: #ffffff;
       margin-bottom: 0.45rem;
     }
 
     .card p {
-      font-size: 0.89rem;
-      color: var(--text-secondary);
-      margin-bottom: 1.1rem;
+      font-size: 0.9rem;
+      color: #a3aec2;
+      margin-bottom: 1rem;
       flex: 1;
     }
 
-    .card-link {
-      font-size: 0.84rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .card-link:hover {
-      color: var(--text-secondary);
-    }
-
-    .panel {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.5rem 1.75rem;
+    .resume-card {
+      background: #0c0f15;
+      border: 1px solid #1e2430;
+      border-radius: 12px;
+      padding: 1.5rem;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 1.25rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    .panel h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-
-    .panel p {
+    .resume-card p {
+      color: #a3aec2;
       font-size: 0.9rem;
-      color: var(--text-secondary);
-      max-width: 64ch;
+      max-width: 62ch;
+      margin-top: 0.3rem;
     }
 
     footer {
-      padding: 2.25rem 0 3rem;
-      color: var(--text-muted);
-      font-size: 0.84rem;
+      padding: 2rem 0 3rem;
+      color: #7c879c;
+      font-size: 0.86rem;
     }
 
-    .footer-inner {
+    .footer-row {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
       gap: 1rem;
     }
 
@@ -367,15 +294,11 @@
       flex-wrap: wrap;
       gap: 1.25rem;
     }
-
-    .footer-links a:hover {
-      color: var(--text-primary);
-    }
   </style>
 </head>
 <body>
-  <header class="site-nav">
-    <div class="wrap nav-inner">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
       <a class="brand" href="#top">Brett Stone</a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#work">Work</a>
@@ -388,27 +311,26 @@
 
   <main id="top" class="wrap">
     <section class="hero">
-      <div class="hero-grid">
-        <div class="avatar" aria-label="Profile photo">
+      <div class="hero-row">
+        <div class="avatar">
           <img
             src="profile.jpg"
-            alt="Portrait of Brett Stone"
-            onload="this.nextElementSibling.style.display='none';"
-            onerror="this.style.display='none';"
+            alt="Brett Stone"
+            onload="this.parentElement.textContent=''; this.parentElement.appendChild(this);"
+            onerror="this.remove();"
           />
-          <span class="avatar-initials">BS</span>
+          BS
         </div>
-
-        <div class="hero-content">
-          <div class="kicker">Intelligence Analysis &bull; Cartography &bull; Geospatial Science</div>
+        <div class="hero-copy">
+          <div class="eyebrow">Intelligence Analysis &bull; Cartography &bull; Geospatial Science</div>
           <h1>Brett Stone</h1>
           <p class="bio">
             B.S. Candidate in Intelligence Analysis and Geography (Applied GIS Concentration) at James Madison
-            University (May 2027). Focused on geospatial intelligence, cartographic design, remote sensing, and
-            structured analysis across ArcGIS Pro, Affinity, Python, and SQL.
+            University (May 2027). Experienced in geospatial intelligence, cartographic production, remote sensing,
+            and structured analysis across ArcGIS Pro, Affinity, Python, and SQL.
           </p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#work">Selected Work</a>
+          <div class="btn-row">
+            <a class="btn btn-light" href="#work">Selected Work</a>
             <a class="btn" href="Brett_Stone_Resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
             <a class="btn" href="https://www.linkedin.com/in/brett-stone-2645882a3/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
@@ -417,47 +339,40 @@
     </section>
 
     <section id="work">
-      <div class="section-head">
-        <h2>Selected Work</h2>
-        <span class="section-note">Cartography, spatial analysis &amp; intelligence visualization</span>
-      </div>
-
-      <!-- ADD / EDIT PROJECT CARDS BELOW -->
+      <h2>Selected Work</h2>
       <div class="grid">
         <article class="card">
           <a class="thumb" href="SUNRISE.png" target="_blank" rel="noopener">
-            <img src="SUNRISE.png" alt="Cartographic terrain and relief design preview" onerror="this.style.display='none';" />
+            <img src="SUNRISE.png" alt="Cartographic terrain and relief design" onerror="this.remove();" />
           </a>
           <div class="card-body">
-            <div class="meta-tag">ArcGIS Pro &bull; Affinity</div>
+            <div class="card-meta">ArcGIS Pro &bull; Affinity</div>
             <h3>Cartographic Terrain &amp; Relief Design</h3>
             <p>Custom elevation and terrain cartography emphasizing visual hierarchy, clean relief shading, and balanced layout.</p>
-            <a class="card-link" href="SUNRISE.png" target="_blank" rel="noopener">Open image &rarr;</a>
+            <a href="SUNRISE.png" target="_blank" rel="noopener">Open image &rarr;</a>
           </div>
         </article>
 
         <article class="card">
           <a class="thumb" href="aviation_map.pdf" target="_blank" rel="noopener">
-            <div class="doc-tile">
-              <span class="doc-type">PDF Map Plate</span>
-              <span class="doc-title">Federal Aviation Spatial Risk Assessment</span>
+            <div class="plate">
+              <span class="plate-label">PDF Map Plate</span>
+              <span class="plate-title">Federal Aviation Spatial Risk Assessment</span>
             </div>
           </a>
           <div class="card-body">
-            <div class="meta-tag">ArcGIS Pro &bull; FAA &amp; Radar Data</div>
+            <div class="card-meta">ArcGIS Pro &bull; FAA &amp; Radar Data</div>
             <h3>Federal Aviation Spatial Risk Assessment</h3>
             <p>Spatial risk mapping evaluating federal aviation incident patterns alongside surface radar and airspace coverage.</p>
-            <a class="card-link" href="aviation_map.pdf" target="_blank" rel="noopener">Open PDF &rarr;</a>
+            <a href="aviation_map.pdf" target="_blank" rel="noopener">Open PDF &rarr;</a>
           </div>
         </article>
       </div>
     </section>
 
     <section id="resume">
-      <div class="section-head">
-        <h2>Resume &amp; Credentials</h2>
-      </div>
-      <div class="panel">
+      <h2>Resume &amp; Credentials</h2>
+      <div class="resume-card">
         <div>
           <h3>Curriculum Vitae / Resume</h3>
           <p>
@@ -465,13 +380,13 @@
             VADEQ GIS intern, and GIS Teaching Assistant.
           </p>
         </div>
-        <a class="btn btn-primary" href="Brett_Stone_Resume.pdf" target="_blank" rel="noopener">Open Resume PDF</a>
+        <a class="btn btn-light" href="Brett_Stone_Resume.pdf" target="_blank" rel="noopener">Open Resume PDF</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap footer-inner">
+    <div class="wrap footer-row">
       <span>&copy; 2026 Brett Stone &bull; Harrisonburg, VA</span>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/brett-stone-2645882a3/" target="_blank" rel="noopener">LinkedIn</a>
