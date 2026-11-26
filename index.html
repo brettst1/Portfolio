@@ -4,8 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brett Stone — Geospatial &amp; Intelligence Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
-    * {
+    :root {
+      --bg-void: #050608;
+      --bg-surface: #0b0e14;
+      --bg-elevated: #121722;
+      --border: rgba(255, 255, 255, 0.1);
+      --border-strong: rgba(255, 255, 255, 0.22);
+      --text-primary: #f4f6f9;
+      --text-secondary: #a2acc0;
+      --text-muted: #6c7588;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --max-w: 1080px;
+    }
+
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -16,81 +38,87 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: #050608;
-      color: #f5f7fa;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
-      color: #e5e9f0;
+      color: inherit;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
     .wrap {
-      max-width: 1080px;
+      max-width: var(--max-w);
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
-    header.topbar {
+    header.site-nav {
       position: sticky;
       top: 0;
-      background: #080a0e;
-      border-bottom: 1px solid #1e2430;
+      z-index: 20;
+      background: rgba(5, 6, 8, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .topbar-inner {
+    .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1rem;
-      min-height: 58px;
+      min-height: 60px;
     }
 
     .brand {
-      font-weight: 600;
       font-size: 0.95rem;
-      color: #ffffff;
+      font-weight: 600;
+      letter-spacing: -0.01em;
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
       flex-wrap: wrap;
       gap: 1.4rem;
-      font-size: 0.88rem;
-      color: #a3aec2;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
     }
 
     .hero {
-      padding: 3.25rem 0 2.5rem;
-      border-bottom: 1px solid #1e2430;
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero-row {
+    .hero-grid {
       display: flex;
       align-items: flex-start;
-      gap: 1.5rem;
       flex-wrap: wrap;
+      gap: 1.75rem;
     }
 
     .avatar {
-      width: 92px;
-      height: 92px;
-      border-radius: 50%;
-      background: #12161f;
-      border: 1px solid #2e3748;
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.35rem;
       font-weight: 600;
-      color: #d0d7e3;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
       overflow: hidden;
       flex-shrink: 0;
     }
@@ -99,103 +127,120 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    .hero-copy {
+    .hero-content {
       flex: 1;
       min-width: 260px;
     }
 
-    .eyebrow {
+    .kicker {
       font-size: 0.76rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: #7c879c;
-      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      margin-bottom: 0.55rem;
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: clamp(1.9rem, 3.6vw, 2.55rem);
       font-weight: 600;
       letter-spacing: -0.025em;
       line-height: 1.15;
-      color: #ffffff;
       margin-bottom: 0.85rem;
     }
 
     .bio {
-      color: #b4bece;
+      color: var(--text-secondary);
+      font-size: 0.98rem;
       max-width: 68ch;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.5rem;
     }
 
-    .btn-row {
+    .cta-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
     }
 
     .btn {
-      display: inline-block;
-      padding: 0.55rem 1rem;
-      border-radius: 8px;
-      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.56rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.86rem;
       font-weight: 500;
-      background: #10141c;
-      color: #f5f7fa;
-      border: 1px solid #2c3546;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface);
+      color: var(--text-primary);
     }
 
     .btn:hover {
-      background: #181e2a;
-      text-decoration: none;
+      background: var(--bg-elevated);
     }
 
-    .btn-light {
-      background: #f5f7fa;
-      color: #050608;
-      border-color: #f5f7fa;
+    .btn-primary {
+      background: var(--text-primary);
+      color: var(--bg-void);
+      border-color: var(--text-primary);
       font-weight: 600;
     }
 
-    .btn-light:hover {
-      background: #dfe5ef;
-      text-decoration: none;
+    .btn-primary:hover {
+      background: #dfe4ec;
     }
 
     section {
-      padding: 2.75rem 0;
-      border-bottom: 1px solid #1e2430;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
     }
 
     h2 {
       font-size: 1.25rem;
       font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 1.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-note {
+      font-size: 0.84rem;
+      color: var(--text-muted);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.25rem;
     }
 
     .card {
-      background: #0c0f15;
-      border: 1px solid #1e2430;
-      border-radius: 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
       overflow: hidden;
       display: flex;
       flex-direction: column;
     }
 
+    .card:hover {
+      border-color: var(--border-strong);
+    }
+
     .thumb {
       display: block;
       aspect-ratio: 16 / 10;
-      background: #12161f;
-      border-bottom: 1px solid #1e2430;
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
       overflow: hidden;
     }
 
@@ -206,27 +251,28 @@
       display: block;
     }
 
-    .plate {
+    .doc-tile {
       width: 100%;
       height: 100%;
-      padding: 1.35rem;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: #10141d;
+      background: linear-gradient(180deg, #121722 0%, #080a0e 100%);
     }
 
-    .plate-label {
+    .doc-type {
       font-size: 0.72rem;
-      text-transform: uppercase;
+      font-weight: 600;
       letter-spacing: 0.08em;
-      color: #7c879c;
+      text-transform: uppercase;
+      color: var(--text-muted);
     }
 
-    .plate-title {
+    .doc-title {
       font-size: 1rem;
       font-weight: 600;
-      color: #ffffff;
+      color: var(--text-primary);
     }
 
     .card-body {
@@ -236,52 +282,63 @@
       flex: 1;
     }
 
-    .card-meta {
-      font-size: 0.78rem;
-      color: #7c879c;
+    .meta-tag {
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--text-muted);
       margin-bottom: 0.35rem;
     }
 
     .card h3 {
       font-size: 1rem;
       font-weight: 600;
-      color: #ffffff;
       margin-bottom: 0.45rem;
     }
 
     .card p {
-      font-size: 0.9rem;
-      color: #a3aec2;
-      margin-bottom: 1rem;
+      font-size: 0.89rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.1rem;
       flex: 1;
     }
 
-    .resume-card {
-      background: #0c0f15;
-      border: 1px solid #1e2430;
-      border-radius: 12px;
-      padding: 1.5rem;
+    .card-link {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
-    .resume-card p {
-      color: #a3aec2;
+    .panel h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .panel p {
       font-size: 0.9rem;
-      max-width: 62ch;
-      margin-top: 0.3rem;
+      color: var(--text-secondary);
+      max-width: 64ch;
     }
 
     footer {
-      padding: 2rem 0 3rem;
-      color: #7c879c;
-      font-size: 0.86rem;
+      padding: 2.25rem 0 3rem;
+      color: var(--text-muted);
+      font-size: 0.84rem;
     }
 
-    .footer-row {
+    .footer-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -294,11 +351,15 @@
       flex-wrap: wrap;
       gap: 1.25rem;
     }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar-inner">
+  <header class="site-nav">
+    <div class="wrap nav-inner">
       <a class="brand" href="#top">Brett Stone</a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#work">Work</a>
@@ -311,27 +372,28 @@
 
   <main id="top" class="wrap">
     <section class="hero">
-      <div class="hero-row">
-        <div class="avatar">
+      <div class="hero-grid">
+        <div class="avatar" aria-label="Profile photo">
           <img
             src="profile.jpg"
-            alt="Brett Stone"
+            alt="Portrait of Brett Stone"
             onload="this.parentElement.textContent=''; this.parentElement.appendChild(this);"
             onerror="this.remove();"
           />
           BS
         </div>
-        <div class="hero-copy">
-          <div class="eyebrow">Intelligence Analysis &bull; Cartography &bull; Geospatial Science</div>
+
+        <div class="hero-content">
+          <div class="kicker">Intelligence Analysis &bull; Cartography &bull; Geospatial Science</div>
           <h1>Brett Stone</h1>
           <p class="bio">
             B.S. Candidate in Intelligence Analysis and Geography (Applied GIS Concentration) at James Madison
-            University (May 2027). Experienced in geospatial intelligence, cartographic production, remote sensing,
-            and structured analysis across ArcGIS Pro, Affinity, Python, and SQL.
+            University (May 2027). Focused on geospatial intelligence, cartographic design, remote sensing, and
+            structured analysis across ArcGIS Pro, Affinity, Python, and SQL.
           </p>
-          <div class="btn-row">
-            <a class="btn btn-light" href="#work">Selected Work</a>
-            <a class="btn" href="Brett_Stone_Resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#work">Selected Work</a>
+            <a class="btn" href="brett%20stone%20BAE%20geoint%20resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
             <a class="btn" href="https://www.linkedin.com/in/brett-stone-2645882a3/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
@@ -339,54 +401,60 @@
     </section>
 
     <section id="work">
-      <h2>Selected Work</h2>
+      <div class="section-head">
+        <h2>Selected Work</h2>
+        <span class="section-note">Cartography, spatial analysis &amp; intelligence visualization</span>
+      </div>
+
       <div class="grid">
         <article class="card">
           <a class="thumb" href="SUNRISE.png" target="_blank" rel="noopener">
             <img src="SUNRISE.png" alt="Cartographic terrain and relief design" onerror="this.remove();" />
           </a>
           <div class="card-body">
-            <div class="card-meta">ArcGIS Pro &bull; Affinity</div>
+            <div class="meta-tag">ArcGIS Pro &bull; Affinity</div>
             <h3>Cartographic Terrain &amp; Relief Design</h3>
             <p>Custom elevation and terrain cartography emphasizing visual hierarchy, clean relief shading, and balanced layout.</p>
-            <a href="SUNRISE.png" target="_blank" rel="noopener">Open image &rarr;</a>
+            <a class="card-link" href="SUNRISE.png" target="_blank" rel="noopener">Open image &rarr;</a>
           </div>
         </article>
 
         <article class="card">
           <a class="thumb" href="aviation_map.pdf" target="_blank" rel="noopener">
-            <div class="plate">
-              <span class="plate-label">PDF Map Plate</span>
-              <span class="plate-title">Federal Aviation Spatial Risk Assessment</span>
+            <div class="doc-tile">
+              <span class="doc-type">PDF Map Plate</span>
+              <span class="doc-title">Federal Aviation Spatial Risk Assessment</span>
             </div>
           </a>
           <div class="card-body">
-            <div class="card-meta">ArcGIS Pro &bull; FAA &amp; Radar Data</div>
+            <div class="meta-tag">ArcGIS Pro &bull; FAA &amp; Radar Data</div>
             <h3>Federal Aviation Spatial Risk Assessment</h3>
             <p>Spatial risk mapping evaluating federal aviation incident patterns alongside surface radar and airspace coverage.</p>
-            <a href="aviation_map.pdf" target="_blank" rel="noopener">Open PDF &rarr;</a>
+            <a class="card-link" href="aviation_map.pdf" target="_blank" rel="noopener">Open PDF &rarr;</a>
           </div>
         </article>
       </div>
     </section>
 
     <section id="resume">
-      <h2>Resume &amp; Credentials</h2>
-      <div class="resume-card">
+      <div class="section-head">
+        <h2>Resume &amp; Credentials</h2>
+      </div>
+      <div class="panel">
         <div>
           <h3>Curriculum Vitae / Resume</h3>
           <p>
-            James Madison University double major (3.88 GPA) with experience as an NGA Tearline Research Analyst,
+            James Madison University double major with experience as an NGA Tearline Research Analyst,
             VADEQ GIS intern, and GIS Teaching Assistant.
           </p>
         </div>
-        <a class="btn btn-light" href="Brett_Stone_Resume.pdf" target="_blank" rel="noopener">Open Resume PDF</a>
+        <a class="btn btn-primary" href="brett%20stone%20BAE%20geoint%20resume.pdf" target="_blank" rel="noopener">Open Resume PDF</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap footer-row">
+    <div class="wrap footer-inner">
       <span>&copy; 2026 Brett Stone &bull; Harrisonburg, VA</span>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/brett-stone-2645882a3/" target="_blank" rel="noopener">LinkedIn</a>
