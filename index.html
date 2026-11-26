@@ -6,13 +6,14 @@
   <title>Brett Stone — Cartography &amp; Geospatial Portfolio</title>
   <style>
     :root {
-      --bg: #f6f7f9;
-      --surface: #ffffff;
-      --text: #141b24;
-      --muted: #526071;
-      --accent: #1e40af;
-      --accent-soft: #eff6ff;
-      --border: #e2e8f0;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface-alt: #162033;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-bg: rgba(56, 189, 248, 0.12);
+      --border: #334155;
     }
 
     * {
@@ -26,159 +27,204 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding: 2.5rem 1.25rem 4.5rem;
+      padding: 2.5rem 1.25rem 4rem;
     }
 
-    .wrap {
-      max-width: 1000px;
+    .container {
+      max-width: 1040px;
       margin: 0 auto;
     }
 
     header {
-      background: var(--surface);
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface-alt) 100%);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.75rem 2rem;
-      margin-bottom: 1.75rem;
+      border-radius: 16px;
+      padding: 2rem 2.25rem;
+      margin-bottom: 2rem;
     }
 
-    .eyebrow {
-      font-size: 0.78rem;
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
       font-weight: 700;
-      text-transform: uppercase;
       letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 0.35rem;
+      background: var(--accent-bg);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
     }
 
     h1 {
-      font-size: 1.9rem;
-      line-height: 1.2;
+      font-size: 2.1rem;
       letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
     }
 
-    .bio {
+    .subtitle {
       color: var(--muted);
-      max-width: 72ch;
-      font-size: 0.98rem;
-      margin-bottom: 1rem;
+      max-width: 70ch;
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
     }
 
-    .meta {
+    .contact-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem 1.25rem;
-      font-size: 0.88rem;
+      gap: 0.75rem 1.5rem;
+      font-size: 0.9rem;
       color: var(--muted);
     }
 
-    .meta a {
+    .contact-bar a {
       color: var(--accent);
-      font-weight: 600;
       text-decoration: none;
+      font-weight: 600;
     }
 
-    .meta a:hover {
+    .contact-bar a:hover {
       text-decoration: underline;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.5rem;
     }
 
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      transition: transform 0.18s ease, border-color 0.18s ease;
     }
 
-    .thumb-link {
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .preview {
       display: block;
-      background: #e5e7eb;
+      width: 100%;
       aspect-ratio: 16 / 10;
+      background: #0b1120;
       overflow: hidden;
+      border-bottom: 1px solid var(--border);
     }
 
-    .thumb-link img {
+    .preview img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
+    .pdf-banner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: radial-gradient(circle at top right, #1e3a5f, #0b1120);
+      color: var(--text);
+      text-decoration: none;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .pdf-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .pdf-banner strong {
+      font-size: 1.05rem;
+    }
+
+    .pdf-banner span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
     .card-body {
-      padding: 1.15rem 1.25rem 1.3rem;
+      padding: 1.35rem 1.4rem 1.5rem;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
-    .tag {
-      display: inline-block;
-      align-self: flex-start;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.75rem;
+    .tools {
+      font-size: 0.78rem;
       font-weight: 600;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-      margin-bottom: 0.55rem;
-    }
-
-    .card h2 {
-      font-size: 1.08rem;
-      line-height: 1.3;
+      color: var(--accent);
       margin-bottom: 0.4rem;
     }
 
+    .card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
     .card p {
-      font-size: 0.92rem;
+      font-size: 0.93rem;
       color: var(--muted);
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       flex: 1;
     }
 
-    .actions {
+    .btn-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      font-size: 0.88rem;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 0.95rem;
+      border-radius: 8px;
+      font-size: 0.86rem;
       font-weight: 600;
-    }
-
-    .actions a {
-      color: var(--accent);
       text-decoration: none;
+      background: var(--accent-bg);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
     }
 
-    .actions a:hover {
-      text-decoration: underline;
+    .btn:hover {
+      background: var(--accent);
+      color: #0f172a;
     }
 
     footer {
-      margin-top: 2rem;
-      font-size: 0.84rem;
-      color: var(--muted);
+      margin-top: 2.5rem;
       text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="container">
     <header>
-      <div class="eyebrow">Geospatial &amp; Cartographic Portfolio</div>
+      <div class="badge">Cartography &amp; Geospatial Analysis</div>
       <h1>Brett Stone</h1>
-      <p class="bio">
-        B.S. Candidate in Intelligence Analysis &amp; Geography at James Madison University (May 2027).
-        Cartographic design, spatial analysis, and thematic mapping using ArcGIS Pro, Affinity, and open geospatial datasets.
+      <p class="subtitle">
+        B.S. Candidate in Intelligence Analysis &amp; Geography (Applied GIS Concentration) at James Madison University.
+        Selected cartographic design, remote sensing, and spatial risk analysis products.
       </p>
-      <div class="meta">
+      <div class="contact-bar">
         <span>Harrisonburg, VA</span>
         <a href="mailto:brett.stone.008@gmail.com">brett.stone.008@gmail.com</a>
         <a href="https://github.com/brettst1" target="_blank" rel="noopener">GitHub</a>
@@ -187,52 +233,40 @@
 
     <main class="grid">
       <article class="card">
-        <a class="thumb-link" href="assets/map-1.png" target="_blank" rel="noopener">
-          <img src="assets/map-1.png" alt="Preview of Sample 1 map" />
+        <a class="preview" href="SUNRISE.png" target="_blank" rel="noopener">
+          <img src="SUNRISE.png" alt="Cartographic map sample" />
         </a>
         <div class="card-body">
-          <span class="tag">ArcGIS Pro &bull; Affinity</span>
-          <h2>Sample 1 Title</h2>
-          <p>Concise summary of the map's objective, key spatial data sources, and cartographic design choices.</p>
-          <div class="actions">
-            <a href="assets/map-1.png" target="_blank" rel="noopener">View PNG</a>
-            <a href="assets/map-1.pdf" target="_blank" rel="noopener">Open PDF</a>
+          <div class="tools">ArcGIS Pro &bull; Affinity</div>
+          <h2>Cartographic Terrain &amp; Relief Design</h2>
+          <p>Custom terrain visualization and cartographic layout combining digital elevation styling, balanced visual hierarchy, and typographic finishing.</p>
+          <div class="btn-row">
+            <a class="btn" href="SUNRISE.png" target="_blank" rel="noopener">Open Full Resolution</a>
           </div>
         </div>
       </article>
 
       <article class="card">
-        <a class="thumb-link" href="assets/map-2.png" target="_blank" rel="noopener">
-          <img src="assets/map-2.png" alt="Preview of Sample 2 map" />
-        </a>
-        <div class="card-body">
-          <span class="tag">Thematic Mapping</span>
-          <h2>Sample 2 Title</h2>
-          <p>Concise summary of the map's objective, key spatial data sources, and cartographic design choices.</p>
-          <div class="actions">
-            <a href="assets/map-2.png" target="_blank" rel="noopener">View PNG</a>
-            <a href="assets/map-2.pdf" target="_blank" rel="noopener">Open PDF</a>
+        <a class="preview" href="aviation_map.pdf" target="_blank" rel="noopener">
+          <div class="pdf-banner">
+            <div class="pdf-pill">PDF Map Plate</div>
+            <strong>Federal Aviation Spatial Risk Assessment</strong>
+            <span>Click to open full vector/layout PDF</span>
           </div>
-        </div>
-      </article>
-
-      <article class="card">
-        <a class="thumb-link" href="assets/map-3.png" target="_blank" rel="noopener">
-          <img src="assets/map-3.png" alt="Preview of Sample 3 map" />
         </a>
         <div class="card-body">
-          <span class="tag">Spatial Analysis</span>
-          <h2>Sample 3 Title</h2>
-          <p>Concise summary of the map's objective, key spatial data sources, and cartographic design choices.</p>
-          <div class="actions">
-            <a href="assets/map-3.png" target="_blank" rel="noopener">View PNG</a>
+          <div class="tools">ArcGIS Pro &bull; FAA &amp; Radar Datasets</div>
+          <h2>National Aviation Spatial Risk Assessment</h2>
+          <p>Cartographic risk product evaluating U.S. aviation incident patterns alongside airspace and surface radar coverage to support operational decision-making.</p>
+          <div class="btn-row">
+            <a class="btn" href="aviation_map.pdf" target="_blank" rel="noopener">View PDF Map</a>
           </div>
         </div>
       </article>
     </main>
 
     <footer>
-      Static portfolio hosted via GitHub Pages.
+      Brett Stone &bull; Cartography &amp; Geospatial Portfolio
     </footer>
   </div>
 </body>
