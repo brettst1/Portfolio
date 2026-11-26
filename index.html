@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brett Stone — Cartography &amp; Geospatial Portfolio</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --surface: #ffffff;
+      --text: #141b24;
+      --muted: #526071;
+      --accent: #1e40af;
+      --accent-soft: #eff6ff;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2.5rem 1.25rem 4.5rem;
+    }
+
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .bio {
+      color: var(--muted);
+      max-width: 72ch;
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.25rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .meta a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .meta a:hover {
+      text-decoration: underline;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .thumb-link {
+      display: block;
+      background: #e5e7eb;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+    }
+
+    .thumb-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 1.15rem 1.25rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .tag {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      margin-bottom: 0.55rem;
+    }
+
+    .card h2 {
+      font-size: 1.08rem;
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .actions a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .actions a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.84rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Geospatial &amp; Cartographic Portfolio</div>
+      <h1>Brett Stone</h1>
+      <p class="bio">
+        B.S. Candidate in Intelligence Analysis &amp; Geography at James Madison University (May 2027).
+        Cartographic design, spatial analysis, and thematic mapping using ArcGIS Pro, Affinity, and open geospatial datasets.
+      </p>
+      <div class="meta">
+        <span>Harrisonburg, VA</span>
+        <a href="mailto:brett.stone.008@gmail.com">brett.stone.008@gmail.com</a>
+        <a href="https://github.com/brettst1" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </header>
+
+    <main class="grid">
+      <article class="card">
+        <a class="thumb-link" href="assets/map-1.png" target="_blank" rel="noopener">
+          <img src="assets/map-1.png" alt="Preview of Sample 1 map" />
+        </a>
+        <div class="card-body">
+          <span class="tag">ArcGIS Pro &bull; Affinity</span>
+          <h2>Sample 1 Title</h2>
+          <p>Concise summary of the map's objective, key spatial data sources, and cartographic design choices.</p>
+          <div class="actions">
+            <a href="assets/map-1.png" target="_blank" rel="noopener">View PNG</a>
+            <a href="assets/map-1.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb-link" href="assets/map-2.png" target="_blank" rel="noopener">
+          <img src="assets/map-2.png" alt="Preview of Sample 2 map" />
+        </a>
+        <div class="card-body">
+          <span class="tag">Thematic Mapping</span>
+          <h2>Sample 2 Title</h2>
+          <p>Concise summary of the map's objective, key spatial data sources, and cartographic design choices.</p>
+          <div class="actions">
+            <a href="assets/map-2.png" target="_blank" rel="noopener">View PNG</a>
+            <a href="assets/map-2.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb-link" href="assets/map-3.png" target="_blank" rel="noopener">
+          <img src="assets/map-3.png" alt="Preview of Sample 3 map" />
+        </a>
+        <div class="card-body">
+          <span class="tag">Spatial Analysis</span>
+          <h2>Sample 3 Title</h2>
+          <p>Concise summary of the map's objective, key spatial data sources, and cartographic design choices.</p>
+          <div class="actions">
+            <a href="assets/map-3.png" target="_blank" rel="noopener">View PNG</a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      Static portfolio hosted via GitHub Pages.
+    </footer>
+  </div>
+</body>
+</html>
