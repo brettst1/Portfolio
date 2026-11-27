@@ -355,38 +355,6 @@
       max-width: 64ch;
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .contact-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.35rem 1.5rem;
-    }
-
-    .contact-label {
-      font-size: 0.74rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.35rem;
-    }
-
-    .contact-value {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .contact-value a:hover {
-      text-decoration: underline;
-    }
-
     footer {
       padding: 2.25rem 0 3rem;
       color: var(--text-muted);
@@ -419,8 +387,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#work">Work</a>
         <a href="#resume">Resume</a>
-        <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#contact">Contact</a>
+        <a href="https://www.linkedin.com/in/brett-stone-2645882a3/" target="_blank" rel="noopener">LinkedIn</a>
       </nav>
     </div>
   </header>
@@ -455,8 +422,7 @@
           <div class="cta-row">
             <a class="btn btn-primary" href="#work">Selected Work</a>
             <a class="btn" href="brett%20stone%20BAE%20geoint%20resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
-            <a class="btn" href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn" href="#contact">Contact Info</a>
+            <a class="btn" href="https://www.linkedin.com/in/brett-stone-2645882a3/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -465,7 +431,7 @@
     <section id="work">
       <div class="section-head">
         <h2>Selected Work</h2>
-        <span class="section-note">Cartography, spatial analysis &amp; intelligence visualization</span>
+        <span class="section-note">Cartography, spatial analysis &amp; intelligence research</span>
       </div>
 
       <div class="grid">
@@ -482,19 +448,34 @@
         </article>
 
         <article class="card">
-          <a class="thumb" href="https://brettst1.github.io/Portfolio/aviation_chokepoints.png" target="_blank" rel="noopener">
+          <a class="thumb" href="aviation_chokepoints.png" target="_blank" rel="noopener">
             <img src="aviation_chokepoints.png" alt="Crossing Flight Paths: Seasonal Avian Migrations and Collision Severity Across U.S. Terminals" onerror="this.style.display='none';" />
           </a>
           <div class="card-body">
             <div class="meta-tag">ArcGIS Pro &bull; Affinity &bull; FAA Strike Data</div>
             <h3>Crossing Flight Paths: Seasonal Avian Migrations &amp; Collision Severity</h3>
             <p>Spatial analysis of seasonal bird migrations, low-altitude terminal approaches below 3,000 feet, and FAA strike damage metrics across U.S. terminals.</p>
-            <a class="card-link" href="https://brettst1.github.io/Portfolio/aviation_chokepoints.png" target="_blank" rel="noopener">Open map &rarr;</a>
+            <a class="card-link" href="aviation_chokepoints.png" target="_blank" rel="noopener">Open map &rarr;</a>
           </div>
         </article>
 
         <article class="card">
-          <a class="thumb" href="https://storymaps.arcgis.com/stories/f6b929bfd71a4f1f960370578dfc44c8" target="_blank" rel="noopener">
+          <a class="thumb" href="aviation_map.pdf" target="_blank" rel="noopener">
+            <div class="doc-tile">
+              <span class="doc-type">PDF Map Plate</span>
+              <span class="doc-title">Federal Aviation Spatial Risk Assessment</span>
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="meta-tag">ArcGIS Pro &bull; FAA &amp; Radar Data</div>
+            <h3>Federal Aviation Spatial Risk Assessment</h3>
+            <p>Spatial risk mapping evaluating federal aviation incident patterns alongside surface radar and airspace coverage.</p>
+            <a class="card-link" href="aviation_map.pdf" target="_blank" rel="noopener">Open PDF &rarr;</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="storymap_thumb.png" target="_blank" rel="noopener">
             <img src="storymap_thumb.png" alt="The Invisible Chokepoints in American Airspace StoryMap preview" onerror="this.style.display='none';" />
           </a>
           <div class="card-body">
@@ -502,6 +483,21 @@
             <h3>The Invisible Chokepoints in American Airspace</h3>
             <p>Spatial analysis of 9,437 FAA and NTSB incident records (2023–2026), 3x3 damage-casualty bivariate mapping, and ASDE-X/ASSC radar coverage.</p>
             <a class="card-link" href="https://storymaps.arcgis.com/stories/f6b929bfd71a4f1f960370578dfc44c8" target="_blank" rel="noopener">Open StoryMap &rarr;</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="stone_IA250_final_research_paper.pdf" target="_blank" rel="noopener">
+            <div class="doc-tile">
+              <span class="doc-type">Research Paper PDF</span>
+              <span class="doc-title">IA 250 Final Research Paper</span>
+            </div>
+          </a>
+          <div class="card-body">
+            <div class="meta-tag">Intelligence Analysis &bull; Research Paper</div>
+            <h3>IA 250 Final Research Paper</h3>
+            <p>Written intelligence research paper examining analytical findings, evidence, and strategic implications.</p>
+            <a class="card-link" href="stone_IA250_final_research_paper.pdf" target="_blank" rel="noopener">Open Research Paper &rarr;</a>
           </div>
         </article>
       </div>
@@ -522,36 +518,14 @@
         <a class="btn btn-primary" href="brett%20stone%20BAE%20geoint%20resume.pdf" target="_blank" rel="noopener">Open Resume PDF</a>
       </div>
     </section>
-
-    <section id="contact">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <span class="section-note">Direct email and phone</span>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-box">
-          <div class="contact-label">Email</div>
-          <div class="contact-value">
-            <a href="mailto:brett.stone.008@gmail.com">brett.stone.008@gmail.com</a>
-          </div>
-        </div>
-        <div class="contact-box">
-          <div class="contact-label">Phone</div>
-          <div class="contact-value">
-            <a href="tel:+12764926343">(276) 492-6343</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="wrap footer-inner">
       <span>&copy; 2026 Brett Stone &bull; Harrisonburg, VA</span>
       <div class="footer-links">
-        <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:brett.stone.008@gmail.com">brett.stone.008@gmail.com</a>
+        <a href="https://www.linkedin.com/in/brett-stone-2645882a3/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/brettst1" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </footer>
