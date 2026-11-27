@@ -107,15 +107,16 @@
     }
 
     .avatar {
-      width: 96px;
-      height: 96px;
+      width: 104px;
+      height: 104px;
       border-radius: 999px;
       background: var(--bg-elevated);
       border: 1px solid var(--border-strong);
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       font-weight: 600;
       letter-spacing: 0.04em;
       color: var(--text-secondary);
@@ -124,10 +125,22 @@
     }
 
     .avatar img {
+      position: relative;
+      z-index: 2;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
       display: block;
+    }
+
+    .avatar span {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-content {
@@ -231,6 +244,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .card:hover {
@@ -239,10 +253,12 @@
 
     .thumb {
       display: block;
+      width: 100%;
       aspect-ratio: 16 / 10;
       background: var(--bg-elevated);
       border-bottom: 1px solid var(--border);
       overflow: hidden;
+      flex-shrink: 0;
     }
 
     .thumb img {
@@ -255,11 +271,12 @@
     .doc-tile {
       width: 100%;
       height: 100%;
-      padding: 1.5rem;
+      min-height: 180px;
+      padding: 1.35rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: linear-gradient(180deg, #121722 0%, #080a0e 100%);
+      background: linear-gradient(160deg, #161d2b 0%, #090c11 100%);
     }
 
     .doc-type {
@@ -267,13 +284,14 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: #9ba6bc;
     }
 
     .doc-title {
       font-size: 1rem;
       font-weight: 600;
       color: var(--text-primary);
+      line-height: 1.35;
     }
 
     .card-body {
@@ -307,6 +325,10 @@
       font-size: 0.84rem;
       font-weight: 500;
       color: var(--text-primary);
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
     }
 
     .panel {
@@ -397,7 +419,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#work">Work</a>
         <a href="#resume">Resume</a>
-        <a href="https://www.linkedin.com/in/brett-stone-2645882a3/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -407,13 +429,12 @@
     <section class="hero">
       <div class="hero-grid">
         <div class="avatar" aria-label="Profile photo">
+          <span>BS</span>
           <img
             src="profile.jpeg"
             alt="Portrait of Brett Stone"
-            onload="this.parentElement.textContent=''; this.parentElement.appendChild(this);"
-            onerror="this.remove();"
+            onerror="this.style.display='none';"
           />
-          BS
         </div>
 
         <div class="hero-content">
@@ -428,14 +449,13 @@
           <p class="bio">
             My career goals center on geospatial intelligence, cartographic production, targeting or analytic
             methodology, and spatial problem-solving where clear visual communication supports real-world
-            decisions. Outside of maps and analysis, I am drawn to travel and adventure, outdoor exploration, 
+            decisions. Outside of maps and analysis, I am drawn to travel and adventure, outdoor exploration,
             animals of all sorts, and new experiences.
-  
           </p>
           <div class="cta-row">
             <a class="btn btn-primary" href="#work">Selected Work</a>
             <a class="btn" href="brett%20stone%20BAE%20geoint%20resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
-            <a class="btn" href="https://www.linkedin.com/in/brett-stone-2645882a3/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn" href="#contact">Contact Info</a>
           </div>
         </div>
@@ -451,7 +471,7 @@
       <div class="grid">
         <article class="card">
           <a class="thumb" href="SUNRISE.png" target="_blank" rel="noopener">
-            <img src="SUNRISE.png" alt="Cartographic terrain and relief design" onerror="this.remove();" />
+            <img src="SUNRISE.png" alt="Cartographic terrain and relief design" onerror="this.style.display='none';" />
           </a>
           <div class="card-body">
             <div class="meta-tag">ArcGIS Pro &bull; Affinity</div>
@@ -462,17 +482,17 @@
         </article>
 
         <article class="card">
-          <a class="thumb" href="https://github.com/brettst1/Portfolio/edit/main/aviation_chokepoints.png" target="_blank" rel="noopener">
+          <a class="thumb" href="https://brettst1.github.io/Portfolio/aviation_chokepoints.png" target="_blank" rel="noopener">
             <img src="aviation_chokepoints.png" alt="Crossing Flight Paths: Seasonal Avian Migrations and Collision Severity Across U.S. Terminals" onerror="this.style.display='none';" />
           </a>
           <div class="card-body">
             <div class="meta-tag">ArcGIS Pro &bull; Affinity &bull; FAA Strike Data</div>
             <h3>Crossing Flight Paths: Seasonal Avian Migrations &amp; Collision Severity</h3>
             <p>Spatial analysis of seasonal bird migrations, low-altitude terminal approaches below 3,000 feet, and FAA strike damage metrics across U.S. terminals.</p>
-            <a class="card-link" href="https://github.com/brettst1/Portfolio/edit/main/aviation_chokepoints.png" target="_blank" rel="noopener">Open map &rarr;</a>
+            <a class="card-link" href="https://brettst1.github.io/Portfolio/aviation_chokepoints.png" target="_blank" rel="noopener">Open map &rarr;</a>
           </div>
         </article>
-        
+
         <article class="card">
           <a class="thumb" href="aviation_map.pdf" target="_blank" rel="noopener">
             <div class="doc-tile">
@@ -487,21 +507,21 @@
             <a class="card-link" href="aviation_map.pdf" target="_blank" rel="noopener">Open PDF &rarr;</a>
           </div>
         </article>
+
+        <article class="card">
+          <a class="thumb" href="https://storymaps.arcgis.com/stories/f6b929bfd71a4f1f960370578dfc44c8" target="_blank" rel="noopener">
+            <img src="storymap_thumb.png" alt="The Invisible Chokepoints in American Airspace StoryMap preview" onerror="this.style.display='none';" />
+          </a>
+          <div class="card-body">
+            <div class="meta-tag">ArcGIS StoryMaps &bull; ArcGIS Pro &bull; Python</div>
+            <h3>The Invisible Chokepoints in American Airspace</h3>
+            <p>Spatial analysis of 9,437 FAA and NTSB incident records (2023–2026), 3x3 damage-casualty bivariate mapping, and ASDE-X/ASSC radar coverage.</p>
+            <a class="card-link" href="https://storymaps.arcgis.com/stories/f6b929bfd71a4f1f960370578dfc44c8" target="_blank" rel="noopener">Open StoryMap &rarr;</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <article class="card">
-          <a class="thumb" href="https://arcg.is/0KvPqb3" target="_blank" rel="noopener">
-            <img src="storymap_thumb.png" alt="ArcGIS StoryMap preview" />
-          </a>
-          <div class="card-body">
-            <div class="meta-tag">ArcGIS StoryMaps &bull; ArcGIS Pro</div>
-            <h3>U.S. Aviation Incidents &amp; Radar Coverage</h3>
-            <p>Interactive map-based story combining scrollytelling, zoom bookmarks, bivariate/univariate mapping, and airport incident/radar analysis.</p>
-            <a class="card-link" href="https://arcg.is/0KvPqb3" target="_blank" rel="noopener">Open StoryMap &rarr;</a>
-          </div>
-        </article>
-    
     <section id="resume">
       <div class="section-head">
         <h2>Resume &amp; Credentials</h2>
@@ -544,8 +564,8 @@
     <div class="wrap footer-inner">
       <span>&copy; 2026 Brett Stone &bull; Harrisonburg, VA</span>
       <div class="footer-links">
-        <a href="https://www.linkedin.com/in/brett-stone-2645882a3/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/brettst1" target="_blank" rel="noopener">GitHub</a>
+        <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener">GitHub</a>
         <a href="mailto:brett.stone.008@gmail.com">brett.stone.008@gmail.com</a>
       </div>
     </div>
